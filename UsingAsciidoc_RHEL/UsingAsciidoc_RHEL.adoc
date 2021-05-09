@@ -43,7 +43,7 @@ code
 [options="header"]
 |=================================
 |機能|プラグイン名      |開発者
-|日本語拡張プラグイン       |Japanese Language Pack for VS Code    |Mirosoft
+|日本語拡張プラグイン       |Japanese Language Pack for VS Code    |Microsoft
 |Asciidoc拡張プラグイン       |AsciiDoc    |asciidoctor
 |=================================
 
