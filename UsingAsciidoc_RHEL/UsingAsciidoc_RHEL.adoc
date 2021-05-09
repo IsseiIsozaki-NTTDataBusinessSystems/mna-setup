@@ -1,0 +1,114 @@
+= Linux環境のAsciidoc利用開始方法
+Issei Isozaki<isozakii@nttdata-bizsys.co.jp>
+Version 1.0.0 at 09/05 May
+:Author:    Issei Isozaki
+:Email:     <isozakii@nttdata-bizsys.co.jp>
+:Date:      09/05 May
+:Revision:  1.0.0
+:source-highlighter: coderay
+:sectnums:
+:sectnumlevels: 3
+:toc-title: Contents
+:toc:
+== Asciidocとは
+[%hardbreaks]
+Markdownなどのような軽量マークアップ言語の一つ。
+Markdownと比較すると、テーブル記法が利用できる点や、拡張仕様が厳密なので方言が乱立しない点でメリットがある。
+
+== 利用環境
+- RHEL7系OS
+- VSCodeで執筆〜HTML変換を実施する
+
+== VSCodeの利用開始
+=== rpmファイルのダウンロード
+[%hardbreaks]
+Microsoftの公式ページからVSCodeのrpmファイルをダウンロードする。
+https://code.visualstudio.com/download
+
+=== インストール
+ターミナルを開いて、yumコマンドでインストールする。
+[source,bash]
+----
+# rpmファイルをダウンロードした先をカレントにして実行
+sudo yum -y install code-1.56.0-1620166346.el8.x86_64.rpm
+----
+codeコマンドでVSCodeが起動する。
+[source,bash]
+----
+code
+----
+
+=== プラグインインストール
+`Ctrl+Shift+X` でプラグイン設定を開き、プラグインをインストールする。
+[options="header"]
+|=================================
+|機能|プラグイン名      |開発者
+|日本語拡張プラグイン       |Japanese Language Pack for VS Code    |Mirosoft
+|Asciidoc拡張プラグイン       |AsciiDoc    |asciidoctor
+|=================================
+
+=== Ruby、Asciidoctor、SyntaxHighLighterをインストール
+[%hardbreaks]
+VSCodeのプラグインのみだとシンタックスハイライトが正常に働かないケースがあるため、
+Ruby版のAsciidoctorもインストールして設定を変更する。
+[source,bash]
+----
+sudo yum -y install ruby
+gem install asciidoctor
+gem install coderay
+----
+
+=== VSCode拡張機能をRuby版に切り替え
+[%hardbreaks]
+VSCode上でショートカットキー `Ctrl + ,` で設定画面を開き、
+設定の検索で「asciidoc」を入力して表示された設定画面から、以下のチェックを外して設定する。
+----
+Ascii Doc: Use_asciidoctor_js
+□ Use asciidoctor js instead of the 'html_generator'
+----
+
+== Tips
+=== HTML出力
+VSCodeの `adoc` ファイル編集中に `Ctrl + Alt + S` でAsciidocがHTML出力される。
+
+=== ソースコードのシンタックスハイライト
+[%hardbreaks]
+ドキュメントヘッダにsource-highlighterを指定して出力すると、コード指定部分がハイライトされる。
+highlighterにはVSCodeプラグインのデフォルトcoderay、highlightjs、prettify、pygmentsを指定可能との記述もあったが、
+検証した結果では、highlightjs以外は前述のRuby版のインストール〜設定変更が必要であるように見受けられた。
+
+.記載例1(ドキュメントヘッダ)
+----
+= Linux環境のAsciidoc利用開始方法
+:source-highlighter: coderay
+----
+.記載例2(ソースコード部分)
+-----
+[source,java]
+----
+public class Test {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}
+----
+-----
+.表示例
+[source,java]
+----
+public class Test {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}
+----
+
+== 参考ページ
+[%hardbreaks]
+http://debugroom.github.io/doc/memo/work/asciidoc/install.html
+https://takumon.github.io/asciidoc-syntax-quick-reference-japanese-translation/
+https://qiita.com/kusanoiskuzuno/items/c323446f2707f9950ebb
+https://qiita.com/xmeta/items/de667a8b8a0f982e123a
+http://ytyaru.hatenablog.com/entry/2018/01/28/000000
+https://qiita.com/shiro01/items/fb93e91a8424e1c4a556
+https://qiita.com/asz2145/items/e6d71d79c91b85aa8cd7
