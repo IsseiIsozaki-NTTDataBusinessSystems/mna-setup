@@ -126,7 +126,7 @@ highlighterにはcoderay、highlightjs、prettify、pygments、rougeを指定可
 VSCodeプラグインが利用するAsciidoctor.jsでは、highlight.jsとprettifyのみが有効。
 それ以外のハイライト設定は前述のRuby版のインストール〜設定変更が必要であるように見受けられる。
 
-使用可能なHighLighter情報の詳細は、<<_参考頁,参考ページ>>ののAsciidoctor User Manualを参照。
+使用可能なHighLighter情報の詳細は、<<_参考ページ,参考ページ>>ののAsciidoctor User Manualを参照。
 
 .記載例1(ドキュメントヘッダ)
 ----
