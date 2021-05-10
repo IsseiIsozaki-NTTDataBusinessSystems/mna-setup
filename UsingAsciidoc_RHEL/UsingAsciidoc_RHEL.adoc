@@ -131,7 +131,8 @@ VSCodeプラグインが利用するAsciidoctor.jsでは、highlight.jsとpretti
 .記載例1(ドキュメントヘッダ)
 ----
 = Linux環境のAsciidoc利用開始方法
-:source-highlighter: coderay
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
 ----
 .記載例2(ソースコード部分)
 -----
@@ -180,3 +181,4 @@ https://qiita.com/asz2145/items/e6d71d79c91b85aa8cd7[ドキュメントヘッダ
 [%hardbreaks]
 http://www.seinan-gu.ac.jp/~shito/asciidoctor/html_chunk/chap46.html[Asciidoctor User Manual - Syntax Highlighting Source Code]
 http://ytyaru.hatenablog.com/entry/2018/01/28/000000[AsciiDocのシンタックスハイライトまとめ - はてなブログ]
+https://github.com/rouge-ruby/rouge/tree/master/lib/rouge/themes[rouge syntax-highlight-themes - Github]
