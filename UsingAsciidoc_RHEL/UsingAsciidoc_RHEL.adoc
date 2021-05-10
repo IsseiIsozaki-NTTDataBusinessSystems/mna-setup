@@ -1,11 +1,8 @@
 = Linux環境のAsciidoc利用開始方法
-Issei Isozaki<isozakii@nttdata-bizsys.co.jp>
-Version 1.0.0 at 09/05 May
-:Author:    Issei Isozaki
-:Email:     <isozakii@nttdata-bizsys.co.jp>
-:Date:      09/05 May
-:Revision:  1.0.0
-:source-highlighter: coderay
+Issei Isozaki <isozakii@nttdata-bizsys.co.jp>
+v1.0.1, 2021-05-11
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
 :sectnums:
 :sectnumlevels: 3
 :toc-title: Contents
@@ -27,14 +24,15 @@ https://code.visualstudio.com/download
 
 === インストール
 ターミナルを開いて、yumコマンドでインストールする。
-[source,bash]
+[source,bash,***]
 ----
 # rpmファイルをダウンロードした先をカレントにして実行
 sudo yum -y install code-1.56.0-1620166346.el8.x86_64.rpm
 ----
 codeコマンドでVSCodeが起動する。
-[source,bash]
+[source,bash,***]
 ----
+# codeコマンドでVSCode起動
 code
 ----
 
@@ -47,15 +45,63 @@ code
 |Asciidoc拡張プラグイン       |AsciiDoc    |asciidoctor
 |=================================
 
-=== Ruby、Asciidoctor、SyntaxHighLighterをインストール
+=== Ruby版のAsciidoctor導入（SyntaxHighLight用）
 [%hardbreaks]
-VSCodeのプラグインのみだとシンタックスハイライトが正常に働かないケースがあるため、
-Ruby版のAsciidoctorもインストールして設定を変更する。
-[source,bash]
+VSCodeのプラグインのみだと一部のシンタックスハイライト種別は正常に動作させられない。
+これを動作させるため、Ruby版のAsciidoctorもインストールして設定を変更する。
+yumのリポジトリに含まれるrubyはバージョンが古いので、rbenvからインストールする。
+
+.gitからrbenvとruby-buildを取得
+[source,bash,***]
 ----
-sudo yum -y install ruby
+git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+----
+
+.bash_profileにrbenvとruby-build用の読み込みコマンドを定義
+[source,bash,***]
+----
+echo '# rbenv' >> ~/.bash_profile
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+
+# 変更は一旦下記で反映可能
+source ~/.bash_profile
+# 読み込みはLinux環境へ再ログインしたタイミングで反映される
+# 再ログイン前だと単純にターミナル再起動した場合設定がリセットされる
+----
+
+.Rubyをインストール
+[source,bash,***]
+----
+# インストールに必要なパッケージをyumで取得
+sudo yum -y install openssl-devel
+
+# 利用可能なRubyのバージョンを確認
+rbenv install --list
+
+# バージョンを指定してインストール（今回は2.7.3を指定）
+# $ rbenv install <Version>
+# インストール完了まで数分を要するので注意
+rbenv install 2.7.3
+
+# 利用可能なバージョンを確認
+rbenv versions
+
+# 利用するRubyバージョンを切り替え
+rbenv global 2.7.3
+
+# Rubyバージョン確認
+ruby -v
+----
+
+.gemで必要なプラグインをインストール
+[source,bash,***]
+----
 gem install asciidoctor
 gem install coderay
+gem install pygments.rb
+gem install rouge
 ----
 
 === VSCode拡張機能をRuby版に切り替え
@@ -74,8 +120,13 @@ VSCodeの `adoc` ファイル編集中に `Ctrl + Alt + S` でAsciidocがHTML出
 === ソースコードのシンタックスハイライト
 [%hardbreaks]
 ドキュメントヘッダにsource-highlighterを指定して出力すると、コード指定部分がハイライトされる。
-highlighterにはVSCodeプラグインのデフォルトcoderay、highlightjs、prettify、pygmentsを指定可能との記述もあったが、
-検証した結果では、highlightjs以外は前述のRuby版のインストール〜設定変更が必要であるように見受けられた。
+highlighterにはcoderay、highlightjs、prettify、pygments、rougeを指定可能。
+
+[%hardbreaks]
+VSCodeプラグインが利用するAsciidoctor.jsでは、highlight.jsとprettifyのみが有効。
+それ以外のハイライト設定は前述のRuby版のインストール〜設定変更が必要であるように見受けられる。
+
+使用可能なHighLighter情報の詳細は、<<_参考頁,参考ページ>>ののAsciidoctor User Manualを参照。
 
 .記載例1(ドキュメントヘッダ)
 ----
@@ -84,31 +135,48 @@ highlighterにはVSCodeプラグインのデフォルトcoderay、highlightjs、
 ----
 .記載例2(ソースコード部分)
 -----
-[source,java]
+[source,java,***]
 ----
 public class Test {
+    /**
+     * main
+     */
     public static void main(String[] args) {
+        // comment!
         System.out.println("Hello World!");
     }
 }
 ----
 -----
 .表示例
-[source,java]
+[source,java,***]
 ----
 public class Test {
+    /**
+     * main
+     */
     public static void main(String[] args) {
+        // comment!
         System.out.println("Hello World!");
     }
 }
 ----
 
 == 参考ページ
+=== 導入方法
 [%hardbreaks]
-http://debugroom.github.io/doc/memo/work/asciidoc/install.html
-https://takumon.github.io/asciidoc-syntax-quick-reference-japanese-translation/
-https://qiita.com/kusanoiskuzuno/items/c323446f2707f9950ebb
-https://qiita.com/xmeta/items/de667a8b8a0f982e123a
-http://ytyaru.hatenablog.com/entry/2018/01/28/000000
-https://qiita.com/shiro01/items/fb93e91a8424e1c4a556
-https://qiita.com/asz2145/items/e6d71d79c91b85aa8cd7
+http://debugroom.github.io/doc/memo/work/asciidoc/install.html[ASCIIDocの導入とGitHubスライドページでの公開(debugroom.github.io)]
+https://qiita.com/shiro01/items/fb93e91a8424e1c4a556[Windows10にAsciiDoc(Asciidoctor)を導入。VSCode使用。 - Qiita]
+https://qiita.com/kusanoiskuzuno/items/c323446f2707f9950ebb[CentOS7.6にVisual Studio Code をインストール - Qiita]
+https://qiita.com/NaokiIshimura/items/ff04b6eaa40b33c4bea8[CentOSにrbenv, Rubyをインストールする - Qiita]
+
+=== Asciidoc（Asciidoctor）概要／利用方式
+[%hardbreaks]
+https://takumon.github.io/asciidoc-syntax-quick-reference-japanese-translation/[Asciidoctor 文法クイックリファレンス(日本語訳)]
+https://qiita.com/xmeta/items/de667a8b8a0f982e123a[AsciiDoc入門 - Qiita]
+https://qiita.com/asz2145/items/e6d71d79c91b85aa8cd7[ドキュメントヘッダーを設定する - Qiita]
+
+=== シンタックスハイライト設定
+[%hardbreaks]
+http://www.seinan-gu.ac.jp/~shito/asciidoctor/html_chunk/chap46.html[Asciidoctor User Manual - Syntax Highlighting Source Code]
+http://ytyaru.hatenablog.com/entry/2018/01/28/000000[AsciiDocのシンタックスハイライトまとめ - はてなブログ]

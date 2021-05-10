@@ -436,93 +436,182 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 <style>
-/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
-pre.CodeRay{background:#f7f7f8}
-.CodeRay .line-numbers{border-right:1px solid currentColor;opacity:.35;padding:0 .5em 0 0}
-.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
-.CodeRay .line-numbers strong{color:#000}
-table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
-table.CodeRay td{vertical-align:top;line-height:inherit}
-table.CodeRay td.line-numbers{text-align:right}
-table.CodeRay td.code{padding:0 0 0 .75em}
-.CodeRay .debug{color:#fff !important;background:#000080 !important}
-.CodeRay .annotation{color:#007}
-.CodeRay .attribute-name{color:#000080}
-.CodeRay .attribute-value{color:#700}
-.CodeRay .binary{color:#509}
-.CodeRay .comment{color:#998;font-style:italic}
-.CodeRay .char{color:#04d}
-.CodeRay .char .content{color:#04d}
-.CodeRay .char .delimiter{color:#039}
-.CodeRay .class{color:#458;font-weight:bold}
-.CodeRay .complex{color:#a08}
-.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
-.CodeRay .color{color:#099}
-.CodeRay .class-variable{color:#369}
-.CodeRay .decorator{color:#b0b}
-.CodeRay .definition{color:#099}
-.CodeRay .delimiter{color:#000}
-.CodeRay .doc{color:#970}
-.CodeRay .doctype{color:#34b}
-.CodeRay .doc-string{color:#d42}
-.CodeRay .escape{color:#666}
-.CodeRay .entity{color:#800}
-.CodeRay .error{color:#808}
-.CodeRay .exception{color:inherit}
-.CodeRay .filename{color:#099}
-.CodeRay .function{color:#900;font-weight:bold}
-.CodeRay .global-variable{color:#008080}
-.CodeRay .hex{color:#058}
-.CodeRay .integer,.CodeRay .float{color:#099}
-.CodeRay .include{color:#555}
-.CodeRay .inline{color:#000}
-.CodeRay .inline .inline{background:#ccc}
-.CodeRay .inline .inline .inline{background:#bbb}
-.CodeRay .inline .inline-delimiter{color:#d14}
-.CodeRay .inline-delimiter{color:#d14}
-.CodeRay .important{color:#555;font-weight:bold}
-.CodeRay .interpreted{color:#b2b}
-.CodeRay .instance-variable{color:#008080}
-.CodeRay .label{color:#970}
-.CodeRay .local-variable{color:#963}
-.CodeRay .octal{color:#40e}
-.CodeRay .predefined{color:#369}
-.CodeRay .preprocessor{color:#579}
-.CodeRay .pseudo-class{color:#555}
-.CodeRay .directive{font-weight:bold}
-.CodeRay .type{font-weight:bold}
-.CodeRay .predefined-type{color:inherit}
-.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
-.CodeRay .key{color:#808}
-.CodeRay .key .delimiter{color:#606}
-.CodeRay .key .char{color:#80f}
-.CodeRay .value{color:#088}
-.CodeRay .regexp .delimiter{color:#808}
-.CodeRay .regexp .content{color:#808}
-.CodeRay .regexp .modifier{color:#808}
-.CodeRay .regexp .char{color:#d14}
-.CodeRay .regexp .function{color:#404;font-weight:bold}
-.CodeRay .string{color:#d20}
-.CodeRay .string .string .string{background:#ffd0d0}
-.CodeRay .string .content{color:#d14}
-.CodeRay .string .char{color:#d14}
-.CodeRay .string .delimiter{color:#d14}
-.CodeRay .shell{color:#d14}
-.CodeRay .shell .delimiter{color:#d14}
-.CodeRay .symbol{color:#990073}
-.CodeRay .symbol .content{color:#a60}
-.CodeRay .symbol .delimiter{color:#630}
-.CodeRay .tag{color:#008080}
-.CodeRay .tag-special{color:#d70}
-.CodeRay .variable{color:#036}
-.CodeRay .insert{background:#afa}
-.CodeRay .delete{background:#faa}
-.CodeRay .change{color:#aaf;background:#007}
-.CodeRay .head{color:#f8f;background:#505}
-.CodeRay .insert .insert{color:#080}
-.CodeRay .delete .delete{color:#800}
-.CodeRay .change .change{color:#66f}
-.CodeRay .head .head{color:#f4f}
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+pre.rouge .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .gp {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+pre.rouge .gr {
+  color: #cc0000;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .p, pre.rouge .pi {
+  color: #4df4ff;
+}
+pre.rouge .gd {
+  color: #cc0000;
+}
+pre.rouge .gi {
+  color: #b2fd6d;
+}
+pre.rouge .ge {
+  font-style: italic;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sb, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .sh, pre.rouge .sx, pre.rouge .sr, pre.rouge .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+pre.rouge .sa {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .nb {
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #BBBBBB;
+}
+pre.rouge .go {
+  color: #BBBBBB;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #a8e1fe;
+}
+pre.rouge .py {
+  color: #a8e1fe;
+}
+pre.rouge .na {
+  color: #a8e1fe;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #a8e1fe;
+  font-weight: bold;
+}
 </style>
 </head>
 <body class="article toc2 toc-left">
@@ -530,8 +619,9 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 <h1>Linux環境のAsciidoc利用開始方法</h1>
 <div class="details">
 <span id="author" class="author">Issei Isozaki</span><br>
-<span id="email" class="email">&lt;<a href="mailto:isozakii@nttdata-bizsys.co.jp">isozakii@nttdata-bizsys.co.jp</a>&gt;</span><br>
-<span id="revdate">Version 1.0.0 at 09/05 May</span>
+<span id="email" class="email"><a href="mailto:isozakii@nttdata-bizsys.co.jp">isozakii@nttdata-bizsys.co.jp</a></span><br>
+<span id="revnumber">version 1.0.1,</span>
+<span id="revdate">2021-05-11</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Contents</div>
@@ -543,7 +633,7 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 <li><a href="#_rpmファイルのダウンロード">3.1. rpmファイルのダウンロード</a></li>
 <li><a href="#_インストール">3.2. インストール</a></li>
 <li><a href="#_プラグインインストール">3.3. プラグインインストール</a></li>
-<li><a href="#_rubyasciidoctorsyntaxhighlighterをインストール">3.4. Ruby、Asciidoctor、SyntaxHighLighterをインストール</a></li>
+<li><a href="#_ruby版のasciidoctor導入syntaxhighlight用">3.4. Ruby版のAsciidoctor導入（SyntaxHighLight用）</a></li>
 <li><a href="#_vscode拡張機能をruby版に切り替え">3.5. VSCode拡張機能をRuby版に切り替え</a></li>
 </ul>
 </li>
@@ -553,7 +643,13 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 <li><a href="#_ソースコードのシンタックスハイライト">4.2. ソースコードのシンタックスハイライト</a></li>
 </ul>
 </li>
-<li><a href="#_参考ページ">5. 参考ページ</a></li>
+<li><a href="#_参考ページ">5. 参考ページ</a>
+<ul class="sectlevel2">
+<li><a href="#_導入方法">5.1. 導入方法</a></li>
+<li><a href="#_asciidocasciidoctor概要利用方式">5.2. Asciidoc（Asciidoctor）概要／利用方式</a></li>
+<li><a href="#_シンタックスハイライト設定">5.3. シンタックスハイライト設定</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -599,8 +695,11 @@ Markdownと比較すると、テーブル記法が利用できる点や、拡張
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash"># rpmファイルをダウンロードした先をカレントにして実行
-sudo yum -y install code-1.56.0-1620166346.el8.x86_64.rpm</code></pre>
+<pre class="rouge highlight"><code data-lang="bash"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="c"># rpmファイルをダウンロードした先をカレントにして実行</span>
+<span class="nb">sudo </span>yum <span class="nt">-y</span> <span class="nb">install </span>code-1.56.0-1620166346.el8.x86_64.rpm
+</pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -608,7 +707,11 @@ sudo yum -y install code-1.56.0-1620166346.el8.x86_64.rpm</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">code</code></pre>
+<pre class="rouge highlight"><code data-lang="bash"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="c"># codeコマンドでVSCode起動</span>
+code
+</pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
 </div>
@@ -645,16 +748,100 @@ sudo yum -y install code-1.56.0-1620166346.el8.x86_64.rpm</code></pre>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_rubyasciidoctorsyntaxhighlighterをインストール">3.4. Ruby、Asciidoctor、SyntaxHighLighterをインストール</h3>
+<h3 id="_ruby版のasciidoctor導入syntaxhighlight用">3.4. Ruby版のAsciidoctor導入（SyntaxHighLight用）</h3>
 <div class="paragraph">
-<p>VSCodeのプラグインのみだとシンタックスハイライトが正常に働かないケースがあるため、<br>
-Ruby版のAsciidoctorもインストールして設定を変更する。</p>
+<p>VSCodeのプラグインのみだと一部のシンタックスハイライト種別は正常に動作させられない。<br>
+これを動作させるため、Ruby版のAsciidoctorもインストールして設定を変更する。<br>
+yumのリポジトリに含まれるrubyはバージョンが古いので、rbenvからインストールする。</p>
 </div>
 <div class="listingblock">
+<div class="title">gitからrbenvとruby-buildを取得</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">sudo yum -y install ruby
-gem install asciidoctor
-gem install coderay</code></pre>
+<pre class="rouge highlight"><code data-lang="bash"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre>git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">bash_profileにrbenvとruby-build用の読み込みコマンドを定義</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="nb">echo</span> <span class="s1">'# rbenv'</span> <span class="o">&gt;&gt;</span> ~/.bash_profile
+<span class="nb">echo</span> <span class="s1">'export PATH="$HOME/.rbenv/bin:$PATH"'</span> <span class="o">&gt;&gt;</span> ~/.bash_profile
+<span class="nb">echo</span> <span class="s1">'eval "$(rbenv init -)"'</span> <span class="o">&gt;&gt;</span> ~/.bash_profile
+
+<span class="c"># 変更は一旦下記で反映可能</span>
+<span class="nb">source</span> ~/.bash_profile
+<span class="c"># 読み込みはLinux環境へ再ログインしたタイミングで反映される</span>
+<span class="c"># 再ログイン前だと単純にターミナル再起動した場合設定がリセットされる</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Rubyをインストール</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="code"><pre><span class="c"># インストールに必要なパッケージをyumで取得</span>
+<span class="nb">sudo </span>yum <span class="nt">-y</span> <span class="nb">install </span>openssl-devel
+
+<span class="c"># 利用可能なRubyのバージョンを確認</span>
+rbenv <span class="nb">install</span> <span class="nt">--list</span>
+
+<span class="c"># バージョンを指定してインストール（今回は2.7.3を指定）</span>
+<span class="c"># $ rbenv install &lt;Version&gt;</span>
+<span class="c"># インストール完了まで数分を要するので注意</span>
+rbenv <span class="nb">install </span>2.7.3
+
+<span class="c"># 利用可能なバージョンを確認</span>
+rbenv versions
+
+<span class="c"># 利用するRubyバージョンを切り替え</span>
+rbenv global 2.7.3
+
+<span class="c"># Rubyバージョン確認</span>
+ruby <span class="nt">-v</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">gemで必要なプラグインをインストール</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre>gem <span class="nb">install </span>asciidoctor
+gem <span class="nb">install </span>coderay
+gem <span class="nb">install </span>pygments.rb
+gem <span class="nb">install </span>rouge
+</pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
 </div>
@@ -686,8 +873,14 @@ gem install coderay</code></pre>
 <h3 id="_ソースコードのシンタックスハイライト">4.2. ソースコードのシンタックスハイライト</h3>
 <div class="paragraph">
 <p>ドキュメントヘッダにsource-highlighterを指定して出力すると、コード指定部分がハイライトされる。<br>
-highlighterにはVSCodeプラグインのデフォルトcoderay、highlightjs、prettify、pygmentsを指定可能との記述もあったが、<br>
-検証した結果では、highlightjs以外は前述のRuby版のインストール〜設定変更が必要であるように見受けられた。</p>
+highlighterにはcoderay、highlightjs、prettify、pygments、rougeを指定可能。</p>
+</div>
+<div class="paragraph">
+<p>VSCodeプラグインが利用するAsciidoctor.jsでは、highlight.jsとprettifyのみが有効。<br>
+それ以外のハイライト設定は前述のRuby版のインストール〜設定変更が必要であるように見受けられる。</p>
+</div>
+<div class="paragraph">
+<p>使用可能なHighLighter情報の詳細は、<a href="#_参考頁">参考ページ</a>ののAsciidoctor User Manualを参照。</p>
 </div>
 <div class="listingblock">
 <div class="title">記載例1(ドキュメントヘッダ)</div>
@@ -699,10 +892,14 @@ highlighterにはVSCodeプラグインのデフォルトcoderay、highlightjs、
 <div class="listingblock">
 <div class="title">記載例2(ソースコード部分)</div>
 <div class="content">
-<pre>[source,java]
+<pre>[source,java,***]
 ----
 public class Test {
+    /**
+     * main
+     */
     public static void main(String[] args) {
+        // comment!
         System.out.println("Hello World!");
     }
 }
@@ -712,11 +909,25 @@ public class Test {
 <div class="listingblock">
 <div class="title">表示例</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">Test</span> {
-    <span class="directive">public</span> <span class="directive">static</span> <span class="type">void</span> main(<span class="predefined-type">String</span><span class="type">[]</span> args) {
-        <span class="predefined-type">System</span>.out.println(<span class="string"><span class="delimiter">&quot;</span><span class="content">Hello World!</span><span class="delimiter">&quot;</span></span>);
-    }
-}</code></pre>
+<pre class="rouge highlight"><code data-lang="java"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="o">{</span>
+    <span class="cm">/**
+     * main
+     */</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// comment!</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello World!"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
 </div>
@@ -725,21 +936,37 @@ public class Test {
 <div class="sect1">
 <h2 id="_参考ページ">5. 参考ページ</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_導入方法">5.1. 導入方法</h3>
 <div class="paragraph">
-<p><a href="http://debugroom.github.io/doc/memo/work/asciidoc/install.html" class="bare">http://debugroom.github.io/doc/memo/work/asciidoc/install.html</a><br>
-<a href="https://takumon.github.io/asciidoc-syntax-quick-reference-japanese-translation/" class="bare">https://takumon.github.io/asciidoc-syntax-quick-reference-japanese-translation/</a><br>
-<a href="https://qiita.com/kusanoiskuzuno/items/c323446f2707f9950ebb" class="bare">https://qiita.com/kusanoiskuzuno/items/c323446f2707f9950ebb</a><br>
-<a href="https://qiita.com/xmeta/items/de667a8b8a0f982e123a" class="bare">https://qiita.com/xmeta/items/de667a8b8a0f982e123a</a><br>
-<a href="http://ytyaru.hatenablog.com/entry/2018/01/28/000000" class="bare">http://ytyaru.hatenablog.com/entry/2018/01/28/000000</a><br>
-<a href="https://qiita.com/shiro01/items/fb93e91a8424e1c4a556" class="bare">https://qiita.com/shiro01/items/fb93e91a8424e1c4a556</a><br>
-<a href="https://qiita.com/asz2145/items/e6d71d79c91b85aa8cd7" class="bare">https://qiita.com/asz2145/items/e6d71d79c91b85aa8cd7</a></p>
+<p><a href="http://debugroom.github.io/doc/memo/work/asciidoc/install.html">ASCIIDocの導入とGitHubスライドページでの公開(debugroom.github.io)</a><br>
+<a href="https://qiita.com/shiro01/items/fb93e91a8424e1c4a556">Windows10にAsciiDoc(Asciidoctor)を導入。VSCode使用。 - Qiita</a><br>
+<a href="https://qiita.com/kusanoiskuzuno/items/c323446f2707f9950ebb">CentOS7.6にVisual Studio Code をインストール - Qiita</a><br>
+<a href="https://qiita.com/NaokiIshimura/items/ff04b6eaa40b33c4bea8">CentOSにrbenv, Rubyをインストールする - Qiita</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_asciidocasciidoctor概要利用方式">5.2. Asciidoc（Asciidoctor）概要／利用方式</h3>
+<div class="paragraph">
+<p><a href="https://takumon.github.io/asciidoc-syntax-quick-reference-japanese-translation/">Asciidoctor 文法クイックリファレンス(日本語訳)</a><br>
+<a href="https://qiita.com/xmeta/items/de667a8b8a0f982e123a">AsciiDoc入門 - Qiita</a><br>
+<a href="https://qiita.com/asz2145/items/e6d71d79c91b85aa8cd7">ドキュメントヘッダーを設定する - Qiita</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_シンタックスハイライト設定">5.3. シンタックスハイライト設定</h3>
+<div class="paragraph">
+<p><a href="http://www.seinan-gu.ac.jp/~shito/asciidoctor/html_chunk/chap46.html">Asciidoctor User Manual - Syntax Highlighting Source Code</a><br>
+<a href="http://ytyaru.hatenablog.com/entry/2018/01/28/000000">AsciiDocのシンタックスハイライトまとめ - はてなブログ</a></p>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-05-10 15:47:48 +0900
+Version 1.0.1<br>
+Last updated 2021-05-11 01:05:56 +0900
 </div>
 </div>
 </body>

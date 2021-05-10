@@ -1,11 +1,8 @@
 = ツール・環境のセットアップ手順
-Issei Isozaki<isozakii@nttdata-bizsys.co.jp>
-Version 1.0.0 at 10/05 May
-:Author:    Issei Isozaki
-:Email:     <isozakii@nttdata-bizsys.co.jp>
-:Date:      10/05 May
-:Revision:  1.0.0
-:source-highlighter: coderay
+Issei Isozaki <isozakii@nttdata-bizsys.co.jp>
+v1.0.1, 2021-05-11
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
 :sectnums:
 :sectnumlevels: 3
 :toc-title: Contents
