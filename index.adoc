@@ -1,0 +1,21 @@
+= ツール・環境のセットアップ手順
+Issei Isozaki<isozakii@nttdata-bizsys.co.jp>
+Version 1.0.0 at 10/05 May
+:Author:    Issei Isozaki
+:Email:     <isozakii@nttdata-bizsys.co.jp>
+:Date:      10/05 May
+:Revision:  1.0.0
+:source-highlighter: coderay
+:sectnums:
+:sectnumlevels: 3
+:toc-title: Contents
+:toc:
+
+検証用のツール・環境のセットアップ手順について示す。
+
+== ツールのセットアップ手順
+=== 作業メモ（Asciidoc - VSCode編集）
+作業メモをVSCodeを利用してAsciidoc形式で編集する環境の構築方法。Asciidoc利用Tipsも随時記載。 +
+link:./UsingAsciidoc_RHEL/UsingAsciidoc_RHEL.html[Linux環境のAsciidoc利用開始方法]
+
+== 環境のセットアップ手順
