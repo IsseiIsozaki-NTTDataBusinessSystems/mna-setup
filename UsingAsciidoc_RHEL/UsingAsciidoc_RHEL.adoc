@@ -9,7 +9,7 @@ Version 1.0.0 at 09/05 May
 :sectnums:
 :sectnumlevels: 3
 :toc-title: Contents
-:toc:
+:toc: left
 == Asciidocとは
 [%hardbreaks]
 Markdownなどのような軽量マークアップ言語の一つ。

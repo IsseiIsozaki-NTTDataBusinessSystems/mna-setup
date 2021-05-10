@@ -9,7 +9,7 @@ Version 1.0.0 at 10/05 May
 :sectnums:
 :sectnumlevels: 3
 :toc-title: Contents
-:toc:
+:toc: left
 
 検証用のツール・環境のセットアップ手順について示す。
 
