@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.15">
 <meta name="author" content="Issei Isozaki">
-<title>ツール・環境のセットアップ手順</title>
+<title>Ibus-Mozc（Google日本語入力）のインストール</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -435,25 +435,217 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge {
+  color: #faf6e4;
+  background-color: #122b3b;
+}
+pre.rouge .gl {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .gp {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6c8b9f;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .err {
+  color: #fefeec;
+  background-color: #cc0000;
+}
+pre.rouge .gr {
+  color: #cc0000;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kv {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .p, pre.rouge .pi {
+  color: #4df4ff;
+}
+pre.rouge .gd {
+  color: #cc0000;
+}
+pre.rouge .gi {
+  color: #b2fd6d;
+}
+pre.rouge .ge {
+  font-style: italic;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gt {
+  color: #dee5e7;
+  background-color: #4e5d62;
+}
+pre.rouge .kc {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gh {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nc {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nd {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .bp {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .ne {
+  color: #b2fd6d;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .nt {
+  color: #ffb000;
+  font-weight: bold;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ld {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .ss {
+  color: #f696db;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sb, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .sh, pre.rouge .sx, pre.rouge .sr, pre.rouge .s1 {
+  color: #fff0a6;
+  font-weight: bold;
+}
+pre.rouge .sa {
+  color: #f6dd62;
+  font-weight: bold;
+}
+pre.rouge .se {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .sc {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .si {
+  color: #4df4ff;
+  font-weight: bold;
+}
+pre.rouge .nb {
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #BBBBBB;
+}
+pre.rouge .go {
+  color: #BBBBBB;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #a8e1fe;
+}
+pre.rouge .py {
+  color: #a8e1fe;
+}
+pre.rouge .na {
+  color: #a8e1fe;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #a8e1fe;
+  font-weight: bold;
+}
+</style>
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>ツール・環境のセットアップ手順</h1>
+<h1>Ibus-Mozc（Google日本語入力）のインストール</h1>
 <div class="details">
 <span id="author" class="author">Issei Isozaki</span><br>
 <span id="email" class="email"><a href="mailto:isozakii@nttdata-bizsys.co.jp">isozakii@nttdata-bizsys.co.jp</a></span><br>
-<span id="revnumber">version 1.1.0,</span>
+<span id="revnumber">version 1.0.0,</span>
 <span id="revdate">2021-05-16</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_ツールのセットアップ手順">1. ツールのセットアップ手順</a>
+<li><a href="#_mozcをインストール">1. Mozcをインストール</a>
 <ul class="sectlevel2">
-<li><a href="#_作業メモasciidoc_vscode編集">1.1. 作業メモ（Asciidoc - VSCode編集）</a></li>
-<li><a href="#_日本語入力環境mozc">1.2. 日本語入力環境（Mozc）</a></li>
+<li><a href="#amazon-linux2-setup">1.1. Amazon Linux2向け手順</a>
+<ul class="sectlevel3">
+<li><a href="#_rpmファイルをダウンロード">1.1.1. rpmファイルをダウンロード</a></li>
+<li><a href="#_rpmファイルをyumでインストール">1.1.2. rpmファイルをyumでインストール</a></li>
+<li><a href="#_環境へ再ログイン">1.1.3. 環境へ再ログイン</a></li>
 </ul>
 </li>
+<li><a href="#_centos向け手順">1.2. CentOS向け手順</a>
+<ul class="sectlevel3">
+<li><a href="#_epelリポジトリの有効化">1.2.1. EPELリポジトリの有効化</a></li>
+<li><a href="#_mozcをインストール_2">1.2.2. Mozcをインストール</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_mozcを有効化する">2. Mozcを有効化する</a></li>
+<li><a href="#_参考ページ">3. 参考ページ</a></li>
 </ul>
 </div>
 </div>
@@ -461,34 +653,161 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>検証用のツール・環境のセットアップ手順について示す。</p>
+<p>Google日本語入力のオープンソース版パッケージであるMozcのインストール＋利用方法を記載。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ツールのセットアップ手順">1. ツールのセットアップ手順</h2>
+<h2 id="_mozcをインストール">1. Mozcをインストール</h2>
 <div class="sectionbody">
+<hr>
 <div class="sect2">
-<h3 id="_作業メモasciidoc_vscode編集">1.1. 作業メモ（Asciidoc - VSCode編集）</h3>
+<h3 id="amazon-linux2-setup">1.1. Amazon Linux2向け手順</h3>
+<div class="sect3">
+<h4 id="_rpmファイルをダウンロード">1.1.1. rpmファイルをダウンロード</h4>
 <div class="paragraph">
-<p>作業メモをVSCodeを利用してAsciidoc形式で編集する環境の構築方法。Asciidoc利用Tipsも随時記載。<br>
-<a href="./UsingAsciidoc_RHEL/UsingAsciidoc_RHEL.html">Linux環境のAsciidoc利用開始方法</a></p>
+<p>EPELの拡張パッケージからインストール可能かと思いきや、適切にビルドされたパッケージが存在しないようである。<br>
+Amazon Linux2向けにビルドされたrpmが存在するので、こちらをダウンロードしてインストールする。<br></p>
+</div>
+<div class="paragraph">
+<p>まずは下記のGitHubページのInstall手順を参照してrpmファイルをダウンロードする。<br>
+<a href="https://github.com/albuild/mozc" class="bare">https://github.com/albuild/mozc</a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_rpmファイルをyumでインストール">1.1.2. rpmファイルをyumでインストール</h4>
+<div class="paragraph">
+<p>ターミナルを開き、rpmファイルの配置先をカレントにしてコマンドを叩く</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="nb">sudo </span>yum <span class="nb">install</span> <span class="nt">-y</span> albuild-mozc-0.2.0-1.amzn2.x86_64.rpm
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_環境へ再ログイン">1.1.3. 環境へ再ログイン</h4>
+<div class="paragraph">
+<p>インストールが完了したら、一度環境ログアウト→ログインする。</p>
+</div>
+<hr>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_日本語入力環境mozc">1.2. 日本語入力環境（Mozc）</h3>
+<h3 id="_centos向け手順">1.2. CentOS向け手順</h3>
+<div class="sect3">
+<h4 id="_epelリポジトリの有効化">1.2.1. EPELリポジトリの有効化</h4>
 <div class="paragraph">
-<p>デフォルトの日本語入力ソフトがイマイチなので、Google日本語入力をセットアップ。<br>
-<a href="./OtherTools/ibus-mozc.html">Ibus-Mozc（Google日本語入力）のインストール</a></p>
+<p>CentOSの場合は、mozcが拡張ライブラリであるため、対象のリポジトリを有効化してからインストールする。</p>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Amazon Linux2の場合は、こちらの手順でインストールすると正常に起動しない。<br>
+<a href="#amazon-linux2-setup">Amazon Linux2向け手順</a>を利用してインストールすること。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>拡張ライブラリをインストール可能とするため、EPEL（Extra Packages for Enterprise Linux）のリポジトリを有効化する。<br>
+ターミナルを開いて、まずはリポジトリの有効化コマンドを叩く。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="c"># EPELが有効化されているか確認</span>
+<span class="c"># 下記のようなものが表示された場合はインストール済</span>
+<span class="c"># epel          Extra Packages for Enterprise Linux 8 - x86_64   disabled★</span>
+<span class="nb">sudo </span>yum repolist all | <span class="nb">grep</span> <span class="nt">-i</span> epel
+
+<span class="c"># epel-releaseをインストール</span>
+<span class="c"># 利用するOSバージョンに応じてepel-release-latest-&lt;7&gt;の数値部分を変更する。</span>
+<span class="nb">sudo </span>yum <span class="nb">install </span>https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm <span class="nt">-y</span>
+
+<span class="c"># 参考までにAmazon Linux2の場合のEPELはこのように有効化する。</span>
+<span class="c"># mozcはこちらからは取得できない状態である。</span>
+<span class="nb">sudo </span>yum repolist all | <span class="nb">grep</span> <span class="nt">-i</span> epel
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mozcをインストール_2">1.2.2. Mozcをインストール</h4>
+<div class="paragraph">
+<p>EPELが有効化されたら、素直にyumを叩いてMozcをインストールする。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="nb">sudo </span>yum <span class="nb">install </span>mozc <span class="nt">-y</span>
+<span class="nb">sudo </span>yum <span class="nb">install </span>ibus-mozc <span class="nt">-y</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_mozcを有効化する">2. Mozcを有効化する</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>下記の手順でLinuxの入力ソフトであるIbus上でMozcを有効化する。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>ターミナルを開き、 <code>ibus-setup</code> コマンドでIbusの設定画面を開く。</p>
+</li>
+<li>
+<p>入力メソッドタブで「追加(A)」を選択。</p>
+</li>
+<li>
+<p>「日本語」→「Mozc」と選択して「追加(A)」。</p>
+</li>
+<li>
+<p>Mozc以外の日本語入力メソッドをすべて「削除(R)」で削除する。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_参考ページ">3. 参考ページ</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/albuild/mozc">albuild-mozc - GitHub</a><br>
+<a href="https://qiita.com/yamada-hakase/items/fdf9c276b9cae51b3633">あらためてEPELリポジトリの使い方をまとめてみた - Qiita</a> <br>
+<a href="https://blue-red.ddo.jp/~ao/wiki/wiki.cgi?page=CentOS%A4%C7Mozc%A4%F2%BB%C8%A4%A6">Centos7でMozcを使う</a></p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.1.0<br>
-Last updated 2021-05-16 23:40:14 +0900
+Version 1.0.0<br>
+Last updated 2021-05-16 23:41:18 +0900
 </div>
 </div>
 </body>

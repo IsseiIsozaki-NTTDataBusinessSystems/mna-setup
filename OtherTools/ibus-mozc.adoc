@@ -1,0 +1,86 @@
+= Ibus-Mozc（Google日本語入力）のインストール
+Issei Isozaki <isozakii@nttdata-bizsys.co.jp>
+v1.0.0, 2021-05-16
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:sectnums:
+:sectnumlevels: 3
+:toc-title: Contents
+:toc: left
+:toclevels: 3
+:icons: font
+
+Google日本語入力のオープンソース版パッケージであるMozcのインストール＋利用方法を記載。
+
+== Mozcをインストール
+
+'''
+
+[[amazon-linux2-setup]]
+=== Amazon Linux2向け手順
+==== rpmファイルをダウンロード
+EPELの拡張パッケージからインストール可能かと思いきや、適切にビルドされたパッケージが存在しないようである。 +
+Amazon Linux2向けにビルドされたrpmが存在するので、こちらをダウンロードしてインストールする。 +
+
+まずは下記のGitHubページのInstall手順を参照してrpmファイルをダウンロードする。 +
+https://github.com/albuild/mozc
+
+==== rpmファイルをyumでインストール
+ターミナルを開き、rpmファイルの配置先をカレントにしてコマンドを叩く
+[source,bash,***]
+----
+sudo yum install -y albuild-mozc-0.2.0-1.amzn2.x86_64.rpm
+----
+==== 環境へ再ログイン
+インストールが完了したら、一度環境ログアウト→ログインする。
+
+'''
+
+=== CentOS向け手順
+==== EPELリポジトリの有効化
+CentOSの場合は、mozcが拡張ライブラリであるため、対象のリポジトリを有効化してからインストールする。
+
+[WARNING]
+====
+Amazon Linux2の場合は、こちらの手順でインストールすると正常に起動しない。 +
+<<amazon-linux2-setup,Amazon Linux2向け手順>>を利用してインストールすること。
+====
+
+拡張ライブラリをインストール可能とするため、EPEL（Extra Packages for Enterprise Linux）のリポジトリを有効化する。 +
+ターミナルを開いて、まずはリポジトリの有効化コマンドを叩く。
+[source,bash,***]
+----
+# EPELが有効化されているか確認
+# 下記のようなものが表示された場合はインストール済
+# epel          Extra Packages for Enterprise Linux 8 - x86_64   disabled★
+sudo yum repolist all | grep -i epel
+
+# epel-releaseをインストール
+# 利用するOSバージョンに応じてepel-release-latest-<7>の数値部分を変更する。
+sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
+
+# 参考までにAmazon Linux2の場合のEPELはこのように有効化する。
+# mozcはこちらからは取得できない状態である。
+sudo yum repolist all | grep -i epel
+----
+
+==== Mozcをインストール
+EPELが有効化されたら、素直にyumを叩いてMozcをインストールする。
+[source,bash,***]
+----
+sudo yum install mozc -y
+sudo yum install ibus-mozc -y
+----
+
+== Mozcを有効化する
+下記の手順でLinuxの入力ソフトであるIbus上でMozcを有効化する。
+
+. ターミナルを開き、 `ibus-setup` コマンドでIbusの設定画面を開く。
+. 入力メソッドタブで「追加(A)」を選択。
+. 「日本語」→「Mozc」と選択して「追加(A)」。
+. Mozc以外の日本語入力メソッドをすべて「削除\(R)」で削除する。
+
+== 参考ページ
+https://github.com/albuild/mozc[albuild-mozc - GitHub] +
+https://qiita.com/yamada-hakase/items/fdf9c276b9cae51b3633[あらためてEPELリポジトリの使い方をまとめてみた - Qiita]  +
+https://blue-red.ddo.jp/~ao/wiki/wiki.cgi?page=CentOS%A4%C7Mozc%A4%F2%BB%C8%A4%A6[Centos7でMozcを使う]
