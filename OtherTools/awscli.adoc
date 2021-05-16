@@ -1,0 +1,50 @@
+= AWS CLIのセットアップ
+Issei Isozaki <isozakii@nttdata-bizsys.co.jp>
+v1.0.0, 2021-05-16
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:sectnums:
+:sectnumlevels: 3
+:toc-title: Contents
+:toc: left
+:toclevels: 3
+:icons: font
+
+AWS CLIをセットアップする手順。 +
+ちなみに1系のCLIセットアップ手順です。
+
+== AWS CLIのインストール
+[source,bash,***]
+----
+# python3インストール
+$ sudo yum install -y python3
+
+# pipをアップグレード
+$ sudo python3 -m ensurepip --upgrade
+$ pip3 --version
+
+# pipでAWS CLIをインストール
+$ pip3 install awscli --upgrade --user
+$ aws --version
+----
+
+== AWS Configセットアップ
+デフォルトの設定情報を保存する。
+[source,bash,***]
+----
+# aws configureコマンドで初期設定を実施
+$ aws configure
+AWS Access Key ID [None]: **** // <1>
+AWS Secret Access Key [None]: **** //<2>
+Default region name [None]: ap-northeast-1 // <3> 
+Default output format [None]: json // <4>
+
+# 適当にコマンドを打って動作を確認
+$ aws ec2 describe-instances
+----
+<1> CLI利用ユーザのアクセスキーを入力。（非公開情報にすること）
+<2> CLI利用ユーザのシークレットキーを入力。（非公開情報にすること）
+<3> デフォルトのリージョン情報を指定。今回は東京リージョン。
+<4> デフォルトの出力フォーマット（text/json）を指定。
+
+各入力項目はCLIのオプションで指定することで変更可能である。

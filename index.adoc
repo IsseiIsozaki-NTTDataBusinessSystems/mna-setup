@@ -1,6 +1,6 @@
 = ツール・環境のセットアップ手順
 Issei Isozaki <isozakii@nttdata-bizsys.co.jp>
-v1.1.0, 2021-05-16
+v1.2.0, 2021-05-16
 :source-highlighter: rouge
 :rouge-style: thankful_eyes
 :sectnums:
@@ -18,3 +18,7 @@ link:./UsingAsciidoc_RHEL/UsingAsciidoc_RHEL.html[Linux環境のAsciidoc利用�
 === 日本語入力環境（Mozc）
 デフォルトの日本語入力ソフトがイマイチなので、Google日本語入力をセットアップ。 +
 link:./OtherTools/ibus-mozc.html[Ibus-Mozc（Google日本語入力）のインストール]
+
+=== AWS CLI（1系）
+AWS CLIのインストールとセットアップ（CLI2系の手順は記載していない）。 +
+link:./OtherTools/awscli.html[AWS CLIのセットアップ]
