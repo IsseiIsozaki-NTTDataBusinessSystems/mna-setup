@@ -14,8 +14,8 @@ JDK11をAmazon Linux2上でセットアップする手順。
 
 == JDK11のセットアップ
 === 利用javaの切り替え
-[source,bash,***]
 下記の通り、 `alternatives` コマンドで `java-11-amazon-corretto.x86_64` に切り替える。
+[source,bash,***]
 ----
 # コマンドを実行してjava-11-amazon-corretto.x86_64の番号を選択
 sudo alternatives --config java

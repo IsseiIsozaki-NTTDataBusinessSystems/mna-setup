@@ -632,7 +632,6 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <li><a href="#_利用javaの切り替え">1.1. 利用javaの切り替え</a></li>
 </ul>
 </li>
-<li><a href="#_バージョンを確認">バージョンを確認</a></li>
 </ul>
 </div>
 </div>
@@ -649,36 +648,32 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_利用javaの切り替え">1.1. 利用javaの切り替え</h3>
+<div class="paragraph">
+<p>下記の通り、 <code>alternatives</code> コマンドで <code>java-11-amazon-corretto.x86_64</code> に切り替える。</p>
+</div>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="bash"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
 2
 3
 4
-</pre></td><td class="code"><pre>下記の通り、 <span class="sb">`</span>alternatives<span class="sb">`</span> コマンドで <span class="sb">`</span>java-11-amazon-corretto.x86_64<span class="sb">`</span> に切り替える。
-<span class="nt">----</span>
-<span class="c"># コマンドを実行してjava-11-amazon-corretto.x86_64の番号を選択</span>
+5
+</pre></td><td class="code"><pre><span class="c"># コマンドを実行してjava-11-amazon-corretto.x86_64の番号を選択</span>
 <span class="nb">sudo </span>alternatives <span class="nt">--config</span> java
+
+<span class="c"># バージョンを確認</span>
+java <span class="nt">-version</span>
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<h1 id="_バージョンを確認" class="sect0">バージョンを確認</h1>
-<div class="paragraph">
-<p>java -version</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre></pre>
-</div>
-</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2021-05-30 23:06:24 +0900
+Last updated 2021-05-30 23:09:14 +0900
 </div>
 </div>
 </body>
