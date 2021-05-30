@@ -1,0 +1,25 @@
+= JDK11のインストール
+Issei Isozaki <isozakii@nttdata-bizsys.co.jp>
+v1.0.0, 2021-05-30
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:sectnums:
+:sectnumlevels: 3
+:toc-title: Contents
+:toc: left
+:toclevels: 3
+:icons: font
+
+JDK11をAmazon Linux2上でセットアップする手順。
+
+== JDK11のセットアップ
+=== 利用javaの切り替え
+[source,bash,***]
+下記の通り、 `alternatives` コマンドで `java-11-amazon-corretto.x86_64` に切り替える。
+----
+# コマンドを実行してjava-11-amazon-corretto.x86_64の番号を選択
+sudo alternatives --config java
+
+# バージョンを確認
+java -version
+----
